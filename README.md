@@ -19,7 +19,6 @@ variant-slider-solver/
 ├── V1.py              # 工程优化：一维元组 + __slots__ + Tie-breaker
 ├── V2.py              # 算力压榨：64位Bitboard + 双向BFS + 静态掩码异或
 ├── V3.py              # 终极版：双掩码PDB + 异或转移 A* (含离线预计算)
-├── test_cases.py      # (可选) 批量测试与断言脚本
 └── README.md          # 项目说明与复现指南
 ```
 
