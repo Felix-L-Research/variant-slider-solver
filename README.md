@@ -71,13 +71,13 @@ variant-slider-solver/
 ### 1. 搜索性能测试
 测试 V3 版本在 Hard 难度下的表现：
 ```bash
-python util.py V3 --mode perf --case hard
+python run_benchmark.py V3 --mode perf --case hard
 ```
 
 ### 2. 内存消耗分析
 对比 V0 版本的内存峰值（需在文件头部开启 `tracemalloc`）：
 ```bash
-python util.py V0 --mode mem --case easy
+python run_benchmark.py V0 --mode mem --case easy
 ```
 
 ### 3. 参数说明
