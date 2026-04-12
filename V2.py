@@ -24,7 +24,7 @@ def generate_neighbors(rows, cols, puzzle_1d):
     return neighbors
 
 
-def solve_puzzle_extreme(board: List[List[int]], target_board: List[List[int]]) -> tuple:
+def solve_puzzle(board: List[List[int]], target_board: List[List[int]]) -> tuple:
     rows, cols = len(board), len(board[0])
     board_1d_lst = [val_map[x] for row in board for x in row]
     target_1d_lst = [val_map[x] for row in target_board for x in row]
@@ -145,7 +145,7 @@ if __name__ == '__main__':
 
     start_time = time.time()
 
-    count, path, nodes = solve_puzzle_extreme(board_hard, target_board_)
+    count, path, nodes = solve_puzzle(board_hard, target_board_)
 
     end_time = time.time()
 

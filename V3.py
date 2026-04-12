@@ -4,7 +4,7 @@ import tracemalloc
 from typing import List, Any
 
 
-def solve_puzzle_pdb_astar(board: List[List[int]], target_board: List[List[int]]) -> tuple[int, List[int]]:
+def solve_puzzle(board: List[List[int]], target_board: List[List[int]]) -> tuple[int, List[int]]:
     rows, cols = len(board), len(board[0])
 
     # 1. 提取有效格子并建立索引映射 (剔除 -2 障碍物)
@@ -200,7 +200,7 @@ if __name__ == '__main__':
     # 记录初始内存快照
     snapshot_before = tracemalloc.take_snapshot()
 
-    steps, path, metrics = solve_puzzle_pdb_astar(board_hard, target_board)
+    steps, path, metrics = solve_puzzle(board_hard, target_board)
 
     # 记录结束内存快照并计算峰值
     snapshot_after = tracemalloc.take_snapshot()
