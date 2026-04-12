@@ -1,3 +1,4 @@
+
 # 📦 variant-slider-solver
 
 <p align="center">
@@ -35,6 +36,21 @@
 
 ---
 
+## 📂 Project Structure
+
+```bash
+variant-slider-solver/
+├── V0.py                # Baseline: 2D List + Weak Heuristic
+├── V1.py                # Engineering: 1D Tuple + Memory Tuning
+├── V2.py                # Performance: Bitboard + Bidirectional BFS
+├── V3.py                # Ultimate: Dual-mask PDB-guided A*
+├── run_benchmark.py     # Evaluation Tool (Time, Memory, Path)
+├── cases.py             # Predefined test cases (Easy/Medium/Hard)
+└── LICENSE              # MIT License
+```
+
+---
+
 ## 📊 Experimental Results (Hard Case / 46 Steps)
 
 | Version | Core Technology | Nodes Expanded | Peak Memory | Search Time | Speedup |
@@ -44,19 +60,25 @@
 | **V2** | Bitboard + Bi-BFS | 1,685,505 | 242 MB | 3.09 s | 52.91× |
 | **V3** | **PDB + XOR A\*** | **469,526** | **120 MB** | **2.66 s** | **61.47×** |
 
-> 💡 **Note:** Search time for V3 does not include the one-time offline PDB precomputation (~4.8s).
-
 ---
 
 ## 🛠️ Usage
 
+### 1. Command Examples
 ```bash
-# Performance Test
+# Performance Test (V3 Hard Case)
 python run_benchmark.py V3 --mode perf --case hard
 
-# Memory Tracking
+# Memory Analysis (V0 Easy Case)
 python run_benchmark.py V0 --mode mem --case easy
 ```
+
+### 2. Argument Details
+*   `--mode`: Benchmark mode. Options: `perf` (time & path) or `mem` (peak memory tracking).
+*   `--case`: Predefined difficulty level.
+    *   `easy`: 26-step solution, ideal for V0/V1 tests.
+    *   `medium`: 34-step solution, medium complexity.
+    *   `hard`: 46-step solution, showcases the extreme speedup of V2/V3.
 
 ---
 
