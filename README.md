@@ -3,7 +3,7 @@
 # 📦 variant-slider-solver
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.8+-blue?style=flat-square&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/Python-3.10+-blue?style=flat-square&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License">
   <img src="https://img.shields.io/badge/Speedup-61x-orange?style=flat-square" alt="Speedup">
   <img src="https://img.shields.io/badge/Status-Completed-success?style=flat-square" alt="Status">
