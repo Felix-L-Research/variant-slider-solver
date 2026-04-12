@@ -1,8 +1,4 @@
-这份 README 已经具备了非常扎实的内容基础。为了进一步提升其视觉吸引力、专业感和易读性，我为你重新排版并优化了文案。
 
-改进点包括：**引入 Badge 标识、结构化特性描述、更清晰的实验对比图表、以及更具美感的代码框布局。**
-
----
 
 # 📦 variant-slider-solver
 
@@ -105,5 +101,4 @@ python util.py V0 --mode mem --case easy
 - **Mentor:** 感谢 **刘蓉老师** 对算法严谨性与论文架构的悉心指导。
 - **Community:** 感谢开源社区在启发式搜索领域提供的理论支持。
 
----
-`Variant-Slider-Solver: Coding with performance in mind.`
+
