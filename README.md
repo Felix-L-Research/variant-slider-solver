@@ -46,7 +46,7 @@ variant-slider-solver/
 ├── V2.py                # 算力压榨：位运算核心 + 双向搜索
 ├── V3.py                # 终极版：双掩码 PDB 引导的 A* 算法
 ├── run_benchmark.py     # 自动化评测工具 (性能、内存、路径验证)
-├── cases.py             # 存放不同难度的变种滑块棋盘
+├── cases.py             # 存放预置棋盘 (Easy/Medium/Hard)
 └── LICENSE              # MIT 开源协议
 ```
 
@@ -61,12 +61,13 @@ variant-slider-solver/
 | **V2** | Bitboard + 双向 BFS | 1,685,505 | 242 MB | 3.09 s | 52.91× |
 | **V3** | **PDB + 异或 A\*** | **469,526** | **120 MB** | **2.66 s** | **61.47×** |
 
-> 💡 **注：** V3 耗时为在线搜索时间，PDB 离线预计算约需 4.8s（仅需系统启动时执行一次）。
-
 ---
 
 ## 🛠️ 快速上手
 
+使用 `run_benchmark.py` 可以方便地在不同版本和难度下测试算法。
+
+### 1. 运行指令示例
 ```bash
 # 性能测试 (以 V3 版本 Hard 难度为例)
 python run_benchmark.py V3 --mode perf --case hard
@@ -74,6 +75,13 @@ python run_benchmark.py V3 --mode perf --case hard
 # 内存追踪 (以 V0 版本 Easy 难度为例)
 python run_benchmark.py V0 --mode mem --case easy
 ```
+
+### 2. 参数详解
+*   `--mode`: 评测模式。可选 `perf` (执行耗时与路径) 或 `mem` (内存峰值追踪)。
+*   `--case`: 预置用例难度。
+    *   `easy`: 26步解，适合验证 V0/V1。
+    *   `medium`: 34步解，中等难度。
+    *   `hard`: 46步解，用于展现 V2/V3 的极限加速能力。
 
 ---
 
@@ -88,4 +96,5 @@ python run_benchmark.py V0 --mode mem --case easy
 ## 📜 许可证与致谢
 *   **License:** [MIT License](LICENSE)
 *   **Mentor:** 感谢 **刘蓉老师** 对算法严谨性与论文架构的悉心指导。
+
 
