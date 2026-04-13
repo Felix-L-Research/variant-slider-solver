@@ -12,7 +12,7 @@
   <b><a href="README.md">中文版</a></b> | <b>English Version</b>
 </p>
 
-> **🎓 Thesis Implementation** | An optimized solver for high-dimensional variant slider puzzles. Achieving **sub-second solving for 46-step puzzles** on standard PCs via bitwise state compression and heuristic evolution.
+> **🎓 Thesis Implementation** | *An optimized solver for high-dimensional variant slider puzzles, achieving sub-second solving for 46-step puzzles on a standard laptop (Intel i5-9300H, 32GB RAM) via bitwise state compression and heuristic evolution.*
 
 ---
 
