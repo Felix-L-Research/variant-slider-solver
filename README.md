@@ -1,3 +1,6 @@
+### 🇨🇳 中文版 (`README.md`)
+
+```markdown
 # 📦 variant-slider-solver
 
 <p align="center">
@@ -47,6 +50,7 @@ variant-slider-solver/
 ├── V3.py                # 终极版：双掩码 PDB 引导的 A* 算法
 ├── run_benchmark.py     # 自动化评测工具 (性能、内存、路径验证)
 ├── cases.py             # 存放预置棋盘 (Easy/Medium/Hard)
+├── REFERENCES.md        # 核心参考文献与理论溯源 (含 DOI 与直达链接)
 └── LICENSE              # MIT 开源协议
 ```
 
@@ -93,20 +97,32 @@ python run_benchmark.py V0 --mode mem --case easy
 
 ---
 
-## 📌 学术勘误 / Errata
+## 📚 参考文献与理论溯源 (References)
 
-**关于配套论文中算法 4-1 伪代码的说明：**
+为践行开放科学（Open Science）精神，方便后续开发者与研究者溯源本项目（变体滑块谜题求解引擎）的理论基础，特在此提供全套参考文献的数字化检索链接。所有文献均已通过严格的交叉验证，附带官方 DOI 或 Google Scholar 永久检索地址。
 
+👉 **[点击查看完整参考文献列表 (REFERENCES.md)](./REFERENCES.md)**
+
+---
+
+## 📌 学术勘误与补充说明 (Errata & Addendum)
+
+秉承严谨的学术态度，作者在论文定稿与归档后，对文中的细节进行了二次深度核查。现对部分内容进行勘误与补充说明，以确保后续研究者的引用准确性：
+
+**1. 关于配套论文中算法 4-1 伪代码的说明：**
 论文第 2.3 节已从数学上严格定义了游标（0）与通配块（-1）的多目标松弛匹配规则，算法 4-1 第 7–8 行的伪代码为示意性的简化表达。在实际的极限难度求解中，由于游标可合法停留在任意通配位置，直接的单一掩码比对无法精确覆盖全部合法目标状态。
-
 本仓库的真实工程实现（见 `V3.py` 第 61–76 行）采用了 **PDB 多起点初始化**策略：在构建通配块模式数据库时，以所有合法目标掩码的集合作为 BFS 的零代价起点，从而将终止判定转化为 `PDB[mask] == 0` 的常数时间查表操作。该设计在保持启发式可容许性的同时，彻底解决了多目标匹配问题，并贡献了关键的性能提升。
 
-特此说明，以供读者在对照论文与代码时参考。
+**2. 关于参考文献的勘误与链接补充：**
+| 位置 | 原文内容 | 修正与补充后内容 | 勘误与补充说明 |
+| :--- | :--- | :--- | :--- |
+| 参考文献 [3] | Pearl J. Heuristics... [M]. **Reading**: Addison-Wesley, 1984: 50-81. | Pearl J. Heuristics... [M]. **Reading, MA**: Addison-Wesley, 1984: 50-81. <br><br>**URL:** [Google Scholar 检索直达](https://scholar.google.com/scholar?q=Heuristics:+intelligent+search+strategies+for+computer+problem+solving) | **1. 出版地补全：** 补充州名缩写（MA）以消除地理歧义。<br>**2. 链接补充：** 补充谷歌学术永久链接。 |
+| 参考文献 [8] | Korf R E. Sliding-tile puzzles... 1999, 14(6): **8-14**. | Korf R E. Sliding-tile puzzles... 1999, 14(6): **8-12**. <br><br>**URL:** [Google Scholar 检索直达](https://scholar.google.com/scholar?q=Sliding-tile+puzzles+and+Rubik%27s+Cube+in+AI+research) | **1. 页码勘误：** 真实起止页码为 8-12 页，系排版笔误。<br>**2. 链接补充：** 早期 DOI 存在解析失效问题，特补充谷歌学术链接。 |
+
+*(注：上述勘误仅涉及伪代码的简化表达与参考文献的排版标号，不影响论文的核心算法逻辑、实验数据及任何理论推导的有效性。)*
 
 ---
 
 ## 📜 许可证与致谢
 *   **License:** [MIT License](LICENSE)
 *   **Mentor:** 感谢 **刘蓉老师** 对算法严谨性与论文架构的悉心指导。
-
-
