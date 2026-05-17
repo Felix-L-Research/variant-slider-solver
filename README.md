@@ -1,6 +1,4 @@
-### 🇨🇳 中文版 (`README.md`)
 
-```markdown
 # 📦 variant-slider-solver
 
 <p align="center">
