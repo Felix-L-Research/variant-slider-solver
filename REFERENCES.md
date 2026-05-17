@@ -1,8 +1,12 @@
-## 📚 核心参考文献与理论溯源 (References)
+# 📚 核心参考文献与理论溯源 / Core References & Theoretical Origins
 
-> **说明：** 为践行开放科学（Open Science）精神，方便后续开发者与研究者溯源本项目（变体滑块谜题求解引擎）的理论基础，特在此提供全套参考文献的数字化检索链接。所有文献均已通过严格的交叉验证，附带官方 DOI 或 Google Scholar 永久检索地址。
+> **[ZH] 说明：** 为践行开放科学（Open Science）精神，方便后续开发者与研究者溯源本项目（变体滑块谜题求解引擎）的理论基础，特在此提供全套参考文献的数字化检索链接。所有文献均已通过严格的交叉验证，附带官方 DOI 或 Google Scholar 永久检索地址。
+> 
+> **[EN] Note:** To practice the spirit of Open Science and facilitate subsequent developers and researchers in tracing the theoretical foundations of this project (Variant Sliding-Tile Puzzle Solver), a complete set of digital retrieval links for all references is provided here. All references have undergone strict cross-validation and include official DOIs or permanent Google Scholar links.
 
-**[经典理论与算法奠基]**
+---
+
+### 1. 经典理论与算法奠基 / Classic Theory & Algorithm Foundations
 * [1] 蔡自兴, 刘丽珏, 蔡竞峰, 等. 人工智能及其应用(第5版)[M]. 北京: 清华大学出版社, 2016: 120-135. 🔗 [[Google Scholar 检索]](https://scholar.google.com/scholar?q=蔡自兴+人工智能及其应用)
 * [2] Russell S, Norvig P. 人工智能: 现代方法(第4版)[M]. 张博雅, 陈坤, 田超, 等, 译. 北京: 人民邮电出版社, 2022: 70-115. 🔗 [[Google Scholar 检索]](https://scholar.google.com/scholar?q=人工智能+现代方法+Russell)
 * [3] Pearl J. Heuristics: intelligent search strategies for computer problem solving[M]. Reading, MA: Addison-Wesley, 1984: 50-81. 🔗 [[Google Scholar 检索]](https://scholar.google.com/scholar?q=Heuristics:+intelligent+search+strategies+for+computer+problem+solving)
@@ -16,20 +20,20 @@
 * [21] Prieditis A. Machine discovery of effective admissible heuristics[J]. Machine Learning, 1993, 12(1): 117-141. 🔗 [[DOI: 10.1007/BF00993063]](https://doi.org/10.1007/BF00993063)
 * [22] Holte R C, Felner A, Sharon G, et al. Bidirectional search that is guaranteed to meet in the middle[A]. Proceedings of the AAAI Conference on Artificial Intelligence[C]. Phoenix, 2016: 3411-3417. 🔗 [[DOI: 10.1609/aaai.v30i1.10436]](https://doi.org/10.1609/aaai.v30i1.10436)
 
-**[模式数据库 (Pattern Databases) 核心文献]**
+### 2. 模式数据库核心文献 / Pattern Databases (PDB)
 * [11] Culberson J C, Schaeffer J. Pattern databases[J]. Computational Intelligence, 1998, 14(3): 318-334. 🔗 [[DOI: 10.1111/0824-7935.00065]](https://doi.org/10.1111/0824-7935.00065)
 * [12] Felner A, Korf R E, Hanan S. Additive pattern database heuristics[J]. Journal of Artificial Intelligence Research, 2004, 22: 279-318. 🔗 [[DOI: 10.1613/jair.1480]](https://doi.org/10.1613/jair.1480)
 * [13] Korf R E. Finding optimal solutions to Rubik's Cube using pattern databases[A]. Proceedings of the Fourteenth National Conference on Artificial Intelligence (AAAI-97)[C]. Providence, 1997: 700-705. 🔗 [[Google Scholar 检索]](https://scholar.google.com/scholar?q=Finding+optimal+solutions+to+Rubik's+Cube+using+pattern+databases)
 
-**[底层工程优化与位运算 (Bitboard & Performance)]**
+### 3. 底层工程优化与位运算 / Bitboard & Performance Optimization
 * [15] Slate D J, Atkin L R. CHESS 4.5---The Northwestern University chess program[M]//Frey P W. Chess skill in man and machine. New York: Springer, 1977: 82-118. 🔗 [[DOI: 10.1007/978-3-662-06239-5_4]](https://doi.org/10.1007/978-3-662-06239-5_4)
 * [16] Ramalho L. Fluent Python: Clear, concise, and effective programming[M]. Sebastopol: O'Reilly Media, 2015: 250-265. 🔗 [[Google Scholar 检索]](https://scholar.google.com/scholar?q=Fluent+Python:+Clear,+concise,+and+effective+programming)
-* [17] Python Software Foundation. Data model --- Python 3.11 documentation[EB/OL]. 🔗 [[官方文档直达]](https://docs.python.org/3/reference/datamodel.html)
+* [17] Python Software Foundation. Data model --- Python 3.11 documentation[EB/OL]. 🔗 [[官方文档直达 / Official Docs]](https://docs.python.org/3/reference/datamodel.html)
 * [18] Gorelick M, Ozsvald I. High performance Python: Practical performant programming for humans[M]. 2nd ed. Sebastopol: O'Reilly Media, 2020: 89-112. 🔗 [[Google Scholar 检索]](https://scholar.google.com/scholar?q=High+performance+Python:+Practical+performant+programming+for+humans)
 * [20] Blackburn S M, Cheng P, McKinley K S. Myths and realities: The performance impact of garbage collection[J]. ACM SIGMETRICS Performance Evaluation Review, 2004, 32(1): 25-36. 🔗 [[DOI: 10.1145/1005686.1005693]](https://doi.org/10.1145/1005686.1005693)
 * [23] Bryant R E, O'Hallaron D R. 深入理解计算机系统(原书第3版)[M]. 龚奕利, 贺莲, 译. 北京: 机械工业出版社, 2016: 450-465. 🔗 [[Google Scholar 检索]](https://scholar.google.com/scholar?q=深入理解计算机系统+Bryant)
 
-**[前沿应用与多智能体路径规划 (MAPF & Applications)]**
+### 4. 前沿应用与多智能体路径规划 / MAPF & Advanced Applications
 * [5] Sturtevant N R. Benchmarks for grid-based pathfinding[J]. IEEE Transactions on Computational Intelligence and AI in Games, 2012, 4(2): 144-148. 🔗 [[DOI: 10.1109/TCIAIG.2012.2197681]](https://doi.org/10.1109/TCIAIG.2012.2197681)
 * [6] 沈克宇, 游志宇, 刘永鑫, 等. 基于改进A*算法的移动机器人路径规划[J]. 计算机应用研究, 2023, 40(1): 75-79. 🔗 [[DOI: 10.19734/j.issn.1001-3695.2022.04.0256]](https://doi.org/10.19734/j.issn.1001-3695.2022.04.0256)
 * [24] 周志华. 机器学习[M]. 北京: 清华大学出版社, 2016: 50-55. 🔗 [[Google Scholar 检索]](https://scholar.google.com/scholar?q=周志华+机器学习)
