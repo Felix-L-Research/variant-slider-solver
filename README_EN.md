@@ -112,10 +112,10 @@ Section 2.3 of the paper strictly defines the multi-target relaxed matching rule
 The actual engineering implementation in this repository (see `V3.py` lines 61–76) adopts a **PDB multi-start initialization** strategy: when building the wildcard pattern database, the set of all legal target masks is used as the zero-cost starting point for BFS. This transforms the termination condition into a constant-time table lookup `PDB[mask] == 0`. This design completely solves the multi-target matching problem while maintaining heuristic admissibility, contributing to a crucial performance boost.
 
 **2. Errata and Link Addendum for References:**
-| Location | Original Content | Corrected & Supplemented Content | Errata & Addendum Note |
-| :--- | :--- | :--- | :--- |
-| Reference [3] | Pearl J. Heuristics... [M]. **Reading**: Addison-Wesley, 1984: 50-81. | Pearl J. Heuristics... [M]. **Reading, MA**: Addison-Wesley, 1984: 50-81. <br><br>**URL:** [Google Scholar Link](https://scholar.google.com/scholar?q=Heuristics:+intelligent+search+strategies+for+computer+problem+solving) | **1. Location Completion:** Added the state abbreviation (MA) to eliminate geographical ambiguity.<br>**2. Link Addendum:** Added a permanent Google Scholar link. |
-| Reference [8] | Korf R E. Sliding-tile puzzles... 1999, 14(6): **8-14**. | Korf R E. Sliding-tile puzzles... 1999, 14(6): **8-12**. <br><br>**URL:** [Google Scholar Link](https://scholar.google.com/scholar?q=Sliding-tile+puzzles+and+Rubik%27s+Cube+in+AI+research) | **1. Page Errata:** The actual page range is 8-12. Corrected a typographical error.<br>**2. Link Addendum:** Due to parsing failures of early DOIs, a Google Scholar link is supplemented. |
+| Location      | Original Content                                             | Corrected & Supplemented Content                             | Errata & Addendum Note                                       |
+| :------------ | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| Reference [3] | Pearl J. Heuristics... [M]. **Reading**: Addison-Wesley, 1984: 50-81. | Pearl J. Heuristics... [M]. **Reading, MA**: Addison-Wesley, 1984: 50-81. | **1. Location Completion:** Added the state abbreviation (MA) to eliminate geographical ambiguity. |
+| Reference [8] | Korf R E. Sliding-tile puzzles... 1999, 14(6): **8-14**.     | Korf R E. Sliding-tile puzzles... 1999, 14(6): **8-12**.     | **1. Page Errata:** The actual page range is 8-12. Corrected a typographical error. |
 
 *(Note: The above errata only involve the simplified expression of pseudocode and typographical errors in references, and do not affect the core algorithm logic, experimental data, or the validity of any theoretical derivations in the paper.)*
 
