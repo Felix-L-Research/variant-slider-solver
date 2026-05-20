@@ -6,7 +6,7 @@ on:
       - 'README.md'
       - 'ERRATA.md'      # 监听这两个中文文件的变动
     branches:
-      - main             # 监听的分支，根据你的实际情况修改(如 master)
+      - main             # 监听的分支，根据您的实际情况修改(如 master)
 
 jobs:
   translate:
@@ -19,13 +19,15 @@ jobs:
 
       - name: Run GPT Translate Action
         uses: imaun/gpt-translate-action@v1.9.0
+        env:
+          # 通过 env 注入 Base URL，OpenAI SDK 会自动识别并指向 DeepSeek 服务
+          OPENAI_BASE_URL: "https://api.deepseek.com/v1"
         with:
-          api_key: ${{ secrets.DEEPSEEK_API_KEY }} # 记得在 GitHub Secrets 里配置这个 Key
-          api_base_url: "https://api.deepseek.com/v1" # DeepSeek 的官方 API 地址
-          ai_service: "openai"                        # DeepSeek 兼容 OpenAI 格式，所以这里保持 openai
-          ai_model: "deepseek-v4-pro"                 # 填入 DeepSeek v4 pro 的具体模型代号
+          api_key: ${{ secrets.DEEPSEEK_API_KEY }} # 确保在 GitHub Secrets 里配置了该 Key
+          ai_service: "openai"                        
+          ai_model: "deepseek-v4-pro"                 
           target_lang: "English"
           target_lang_code: "en"
-          file_extensions: "md"
+          file_exts: "md"                             # 修正参数名：从 file_extensions 改为 file_exts
           output_format: "{name}_EN.{ext}"
           system_prompt: "You are an expert in Computer Science, Discrete Mathematics, and Graph Theory. Translate the following markdown text to professional academic English. Keep all markdown formatting, tables, and LaTeX formulas strictly intact."
