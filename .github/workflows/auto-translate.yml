@@ -27,5 +27,5 @@ jobs:
           target_lang: "English"
           target_lang_code: "en"
           file_extensions: "md"
-          output_format: "{name}_en.{ext}"
+          output_format: "{name}_EN.{ext}"
           system_prompt: "You are an expert in Computer Science, Discrete Mathematics, and Graph Theory. Translate the following markdown text to professional academic English. Keep all markdown formatting, tables, and LaTeX formulas strictly intact."
