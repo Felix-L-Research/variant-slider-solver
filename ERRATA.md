@@ -13,8 +13,8 @@
 **2. 关于参考文献的勘误与链接补充：**
 | 位置 | 原文内容 | 修正与补充后内容 | 勘误与补充说明 |
 | :--- | :--- | :--- | :--- |
-| 参考文献 [3] | Pearl J. Heuristics... [M]. **Reading**: Addison-Wesley, 1984: 50-81. | Pearl J. Heuristics... [M]. **Reading, MA**: Addison-Wesley, 1984: 50-81. | **1. 出版地补全：** 补充州名缩写（MA）以消除地理歧义。 |
-| 参考文献 [8] | Korf R E. Sliding-tile puzzles... 1999, 14(6): **8-14**. | Korf R E. Sliding-tile puzzles... 1999, 14(6): **8-12**. | **1. 页码勘误：** 真实起止页码为 8-12 页，系排版笔误。 |
+| 参考文献 [3] | Pearl J. Heuristics... [M]. **Reading**: Addison-Wesley, 1984: 50-81. | Pearl J. Heuristics... [M]. **Reading, MA**: Addison-Wesley, 1984: 50-81. | **出版地补全：** 补充州名缩写（MA）以消除地理歧义。 |
+| 参考文献 [8] | Korf R E. Sliding-tile puzzles... 1999, 14(6): **8-14**. | Korf R E. Sliding-tile puzzles... 1999, 14(6): **8-12**. | **页码勘误：** 真实起止页码为 8-12 页，系排版笔误。 |
 
 ---
 
