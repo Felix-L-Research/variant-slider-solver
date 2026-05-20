@@ -1,0 +1,31 @@
+name: Auto Translate Markdown to English
+
+on:
+  push:
+    paths:
+      - 'README.md'
+      - 'ERRATA.md'      # 监听这两个中文文件的变动
+    branches:
+      - main             # 监听的分支，根据你的实际情况修改(如 master)
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2 # 获取历史记录以便对比文件变动
+
+      - name: Run GPT Translate Action
+        uses: imaun/gpt-translate-action@v1.9.0
+        with:
+          api_key: ${{ secrets.DEEPSEEK_API_KEY }} # 记得在 GitHub Secrets 里配置这个 Key
+          api_base_url: "https://api.deepseek.com/v1" # DeepSeek 的官方 API 地址
+          ai_service: "openai"                        # DeepSeek 兼容 OpenAI 格式，所以这里保持 openai
+          ai_model: "deepseek-v4-pro"                 # 填入 DeepSeek v4 pro 的具体模型代号
+          target_lang: "English"
+          target_lang_code: "en"
+          file_extensions: "md"
+          output_format: "{name}_en.{ext}"
+          system_prompt: "You are an expert in Computer Science, Discrete Mathematics, and Graph Theory. Translate the following markdown text to professional academic English. Keep all markdown formatting, tables, and LaTeX formulas strictly intact."
