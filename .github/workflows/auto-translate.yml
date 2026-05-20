@@ -4,27 +4,95 @@ on:
   push:
     paths:
       - 'README.md'
-      - 'ERRATA.md'      # 监听这两个中文文件的变动
+      - 'ERRATA.md'      # 监听这两个文件的变动
     branches:
-      - main             # 根据你的仓库实际分支修改（也可能是 master）
+      - main             # 根据您的实际分支修改（master 或 main）
 
 jobs:
   translate:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write    # 必须配置：允许 Action 将翻译后的文件推送回仓库
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2  # 获取足够历史以便对比文件变动
+          fetch-depth: 0 # 获取完整历史以便提交
 
-      - name: Run GPT Translate Action
-        uses: imaun/gpt-translate-action@v1.9.0
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          api_key: ${{ secrets.DEEPSEEK_API_KEY }}   # 在仓库 Settings → Secrets 中配置
-          base_url: "https://api.deepseek.com/v1"    # DeepSeek API 地址
-          model: "deepseek-v4-pro"                   # DeepSeek 模型名
-          target_lang: "English"
-          target_lang_code: "en"
-          file_exts: "md"                            # 标准参数名是 file_exts
-          output_format: "{name}_EN.{ext}"
-          system_prompt: "You are an expert in Computer Science, Discrete Mathematics, and Graph Theory. Translate the following markdown text to professional academic English. Keep all markdown formatting, tables, and LaTeX formulas strictly intact."
+          python-version: '3.x'
+
+      - name: Install Dependencies
+        run: |
+          pip install openai
+
+      - name: Run Translate Script
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          python -c '
+          import os
+          from openai import OpenAI
+
+          api_key = os.environ.get("DEEPSEEK_API_KEY")
+          if not api_key:
+              print("Error: DEEPSEEK_API_KEY is not set in secrets.")
+              exit(1)
+
+          # 初始化 DeepSeek 客户端
+          client = OpenAI(
+              api_key=api_key,
+              base_url="https://api.deepseek.com"
+          )
+
+          files_to_translate = ["README.md", "ERRATA.md"]
+          system_prompt = "You are an expert in Computer Science, Discrete Mathematics, and Graph Theory. Translate the following markdown text to professional academic English. Keep all markdown formatting, tables, and LaTeX formulas strictly intact."
+
+          for file_name in files_to_translate:
+              if not os.path.exists(file_name):
+                  print(f"File {file_name} does not exist, skipping.")
+                  continue
+
+              print(f"Translating {file_name}...")
+              with open(file_name, "r", encoding="utf-8") as f:
+                  content = f.read()
+
+              if not content.strip():
+                  print(f"File {file_name} is empty, skipping.")
+                  continue
+
+              try:
+                  response = client.chat.completions.create(
+                      model="deepseek-chat",  # DeepSeek 官方对话模型
+                      messages=[
+                          {"role": "system", "content": system_prompt},
+                          {"role": "user", "content": content}
+                      ],
+                      temperature=0.2,
+                  )
+                  translated_text = response.choices[0].message.content
+
+                  # 生成输出文件名，例如 README_EN.md
+                  base, ext = os.path.splitext(file_name)
+                  output_file = f"{base}_EN{ext}"
+
+                  with open(output_file, "w", encoding="utf-8") as f_out:
+                      f_out.write(translated_text)
+                  print(f"Successfully translated {file_name} to {output_file}")
+              except Exception as e:
+                  print(f"Error translating {file_name}: {e}")
+          '
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README_EN.md ERRATA_EN.md || true
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "docs: auto-translate README and ERRATA to English"
+            git push
+          fi
