@@ -69,7 +69,7 @@ variant-slider-solver/
 
 ---
 
-## 🛠️ 快速上手 （Quick Start）
+## 🛠️ 快速上手
 
 使用 `run_benchmark.py` 可以方便地在不同版本和难度下测试算法。
 
