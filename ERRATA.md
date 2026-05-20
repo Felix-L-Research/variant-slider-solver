@@ -1,48 +1,39 @@
 ## 📌 学术勘误与补充说明 (Errata & Addendum)
 
-秉承严谨的学术态度，作者在论文定稿与归档后，对文中的工程细节与底层离散数学理论进行了深度核查与极限压力测试。现对部分内容进行勘误与补充说明，以确保后续研究者的引用准确性。
-
-Upholding a rigorous academic attitude, the author conducted in-depth verifications and extreme stress tests on the engineering details and underlying discrete mathematics theories after the thesis was finalized and archived. This document provides errata and addenda for specific contents to ensure citation accuracy for future researchers.
+秉承严谨的学术态度，作者在论文定稿与归档后，对文中的工程细节与底层离散数学理论进行了二次深度核查与极限压力测试。现对部分内容进行勘误与补充说明，以确保后续研究者的引用准确性。
 
 *(注：下述说明仅涉及伪代码的简化表达、排版标号以及极端边界下的理论深化，不影响论文的核心算法逻辑、实验数据及最终 61 倍性能提升的有效性。)*
-*(Note: The following clarifications only involve simplified pseudocode expressions, typographical numbering, and theoretical deepening under extreme boundaries. They do not affect the core algorithm logic, experimental data, or the validity of the final 61-fold performance speedup.)*
-
----
 
 ### 一、 工程实现与排版勘误 (Engineering & Typographical Errata)
 
-**1. 关于配套论文中算法 4-1 伪代码的说明 (Clarification on Pseudocode of Algorithm 4-1)：**
+**1. 关于配套论文中算法 4-1 伪代码的说明：**
 论文第 2.3 节已从数学上严格定义了游标（0）与通配块（-1）的多目标松弛匹配规则，算法 4-1 第 7–8 行的伪代码为示意性的简化表达。在实际的极限难度求解中，由于游标可合法停留在任意通配位置，直接的单一掩码比对无法精确覆盖全部合法目标状态。
-本仓库的真实工程实现（见 `V3.py` 第 61–76 行）采用了 **PDB 多起点初始化 (PDB Multi-Start Initialization)** 策略：在构建通配块模式数据库时，以所有合法目标掩码的集合作为 BFS 的零代价起点，从而将终止判定转化为 `PDB[mask] == 0` 的常数时间查表操作。该设计在保持启发式可容许性的同时，彻底解决了多目标匹配问题，并贡献了关键的性能提升。
+本仓库的真实工程实现（见 `V3.py` 第 61–76 行）采用了 **PDB 多起点初始化**策略：在构建通配块模式数据库时，以所有合法目标掩码的集合作为 BFS 的零代价起点，从而将终止判定转化为 `PDB[mask] == 0` 的常数时间查表操作。该设计在保持启发式可容许性的同时，彻底解决了多目标匹配问题，并贡献了关键的性能提升。
 
-Section 2.3 of the thesis strictly defines the multi-target relaxed matching rules between the cursor (0) and wildcards (-1) mathematically. The pseudocode in lines 7–8 of Algorithm 4-1 is a simplified illustrative expression. In the actual extreme-difficulty solving process, since the cursor can legally stay at any wildcard position, a direct single-mask comparison cannot accurately cover all legal target states. 
-The actual engineering implementation in this repository (see `V3.py`, lines 61–76) adopts a **PDB Multi-Start Initialization** strategy: when building the wildcard Pattern Database, the set of all legal target masks is used as the zero-cost starting point for BFS. This transforms the termination check into a constant-time lookup operation `PDB[mask] == 0`. This design thoroughly resolves the multi-target matching problem while maintaining heuristic admissibility, contributing to a crucial performance boost.
-
-**2. 关于参考文献的勘误与链接补充 (Errata and Link Additions for References)：**
-
-| 位置 (Location) | 原文内容 (Original Text) | 修正与补充后内容 (Corrected Text) | 勘误与补充说明 (Explanation) |
+**2. 关于参考文献的勘误与链接补充：**
+| 位置 | 原文内容 | 修正与补充后内容 | 勘误与补充说明 |
 | :--- | :--- | :--- | :--- |
-| 参考文献 [3] | Pearl J. Heuristics... [M]. **Reading**: Addison-Wesley, 1984: 50-81. | Pearl J. Heuristics... [M]. **Reading, MA**: Addison-Wesley, 1984: 50-81. | **出版地补全 (Location Addition)：** 补充州名缩写（MA）以消除地理歧义。 (Added state abbreviation 'MA' to eliminate geographical ambiguity.) |
-| 参考文献 [8] | Korf R E. Sliding-tile puzzles... 1999, 14(6): **8-14**. | Korf R E. Sliding-tile puzzles... 1999, 14(6): **8-12**. | **页码勘误 (Page Number Erratum)：** 真实起止页码为 8-12 页，系排版笔误。 (The actual page range is 8-12; corrected a typographical error.) |
+| 参考文献 [3] | Pearl J. Heuristics... [M]. **Reading**: Addison-Wesley, 1984: 50-81. | Pearl J. Heuristics... [M]. **Reading, MA**: Addison-Wesley, 1984: 50-81. | **1. 出版地补全：** 补充州名缩写（MA）以消除地理歧义。 |
+| 参考文献 [8] | Korf R E. Sliding-tile puzzles... 1999, 14(6): **8-14**. | Korf R E. Sliding-tile puzzles... 1999, 14(6): **8-12**. | **1. 页码勘误：** 真实起止页码为 8-12 页，系排版笔误。 |
 
 ---
 
 ### 二、 理论边界与数学严谨性补充 (Theoretical Boundary Addendum)
 
-**1. 广义状态空间公式的“拓扑连通性”前提 (The "Topological Connectivity" Prerequisite for the Generalized State Space Formula)**
+**1. 广义状态空间公式的“拓扑连通性”前提**
 论文 2.1.1 节中，利用多重集排列公式计算有效网格 $N_{valid} = 22$ 的理论状态总数为 6,466,460。该组合数学公式的成立，存在一个隐含的图论前提：**剔除障碍物后的有效网格必须构成一个单一的连通分量（Single Connected Component）。**
-*   **针对本论文测试用例 (For the test case in this thesis)**：经拓扑检测，本文设定的 3 个固定障碍物（`-2`）坐标分布未形成闭合包围，有效网格图确实构成单一连通分量。因此，论文中的状态空间计算与 100% 可达性结论完全正确。
-*   **针对广义工业场景 (For generalized industrial scenarios)**：若障碍物密度极高，将某些网格完全包围形成“孤岛”，则被包围的网格将成为死锁状态。因此，在将本寻路引擎推广至通用场景时，系统初始化阶段必须引入**连通分量检测（Connected Components Detection）**，仅对游标所在的连通分量进行状态空间估算与寻路。
+*   **针对本论文测试用例**：经拓扑检测，本文设定的 3 个固定障碍物（`-2`）坐标分布未形成闭合包围，有效网格图确实构成单一连通分量。因此，论文中的状态空间计算与 100% 可达性结论完全正确。
+*   **针对广义工业场景**：若障碍物密度极高，将某些网格完全包围形成“孤岛”，则被包围的网格将成为死锁状态。因此，在将本寻路引擎推广至通用场景时，系统初始化阶段必须引入**连通分量检测（Connected Components Detection）**，仅对游标所在的连通分量进行状态空间估算与寻路。
 
-**2. “奇偶性约束失效”的底层拓扑与代数机制 (Underlying Topological and Algebraic Mechanisms of "Parity Constraint Invalidation")**
-论文第 6 页指出：“同质块的‘内部置换’特性有效折叠了奇偶隔离”。在定稿后的理论复盘中，作者进一步明确了打破经典滑块奇偶性死锁的**双重底层数学机制 (Dual underlying mathematical mechanisms)**：
-*   **同质块的隐形交换 (Invisible Swap of Homogeneous Tiles)**：基于抽屉原理 (Pigeonhole Principle)，盘面必然存在大量同质块（如 9 个 `1` 和 12 个 `-1`）。同质块在底层的对换操作（Transposition）会改变微观排列的奇偶性，但宏观物理状态保持不变。在商空间（Quotient Space）映射中，这使得奇偶子空间发生拓扑折叠。
-*   **通配块的奇偶切换开关 (Parity Toggle Switch of Wildcards)**：根据论文 2.3 节的匹配逻辑，游标（`0`）可合法停留在任意通配块（`-1`）的目标位置。若遇奇偶性死锁，游标仅需向相邻通配块多移动一步，即可在保持宏观匹配合法的前提下，于数学底层瞬间反转全局奇偶性。通配块的松弛匹配从根本上撕裂了经典图搜索的奇偶性屏障。
+**2. “奇偶性约束失效”的底层拓扑与代数机制**
+论文第 6 页指出：“同质块的‘内部置换’特性有效折叠了奇偶隔离”。在定稿后的理论复盘中，作者进一步明确了打破经典滑块奇偶性死锁的**双重底层数学机制**：
+*   **同质块的隐形交换**：基于抽屉原理，盘面必然存在大量同质块（如 9 个 `1` 和 12 个 `-1`）。同质块在底层的对换操作（Transposition）会改变微观排列的奇偶性，但宏观物理状态保持不变。在商空间（Quotient Space）映射中，这使得奇偶子空间发生拓扑折叠。
+*   **通配块的奇偶切换开关（核心机制）**：根据论文 2.3 节的匹配逻辑，游标（`0`）可合法停留在任意通配块（`-1`）的目标位置。若遇奇偶性死锁，游标仅需向相邻通配块多移动一步，即可在保持宏观匹配合法的前提下，于数学底层瞬间反转全局奇偶性。通配块的松弛匹配从根本上撕裂了经典图搜索的奇偶性屏障。
 
-**3. 极限障碍物密度下的绝对数学边界推导 (Absolute Mathematical Boundary Derivation Under Extreme Obstacle Density)**
+**3. 极限障碍物密度下的绝对数学边界推导**
 既然同质块与通配块能打破奇偶性，那么在何种极端情况下，该变体滑块的奇偶性隔离会恢复（即出现绝对死局）？
 设剔除障碍物后，游标所在的连通有效网格数量为 $N_{valid}$。该区域内包含 1 个游标（`0`），$N_1$ 个属性块（`1`），以及 $N_{-1}$ 个通配块（`-1`）。满足空间方程：$N_1 + N_{-1} = N_{valid} - 1$。
 奇偶性隔离恢复的**唯一数学条件**是：所有可移动的同质块数量均严格 $\le 1$（即失去隐形交换能力，且游标失去多余的通配块作为奇偶切换开关）。
 即：$N_1 \le 1$ 且 $N_{-1} \le 1$。将两式相加并代入空间方程，可得：**$N_{valid} \le 3$**。
-*   **绝对鲁棒性 (Absolute Robustness)**：只要有效连通网格数 $N_{valid} \ge 4$（例如任意 $2 \times 2$ 的连通区域），必然存在至少一种同质块数量 $\ge 2$。奇偶性隔离被绝对打破，宏观状态 100% 可达。
-*   **理论奇点 (Theoretical Singularity)**：仅当海量障碍物将游标逼入 $N_{valid} \le 3$ 的极端死胡同（如 $1 \times 3$ 单链，失去拓扑环与代数替身）时，奇偶性才会锁死。但此时状态空间极小（$O(1)$ 级别），算法在微秒内即可完成判定，绝不会引发维度灾难。
+*   **绝对鲁棒性**：只要有效连通网格数 $N_{valid} \ge 4$（例如任意 $2 \times 2$ 的连通区域），必然存在至少一种同质块数量 $\ge 2$。奇偶性隔离被绝对打破，宏观状态 100% 可达。
+*   **理论奇点**：仅当海量障碍物将游标逼入 $N_{valid} \le 3$ 的极端死胡同（如 $1 \times 3$ 单链，失去拓扑环与代数替身）时，奇偶性才会锁死。但此时状态空间极小（$O(1)$ 级别），算法在微秒内即可完成判定，绝不会引发维度灾难。
