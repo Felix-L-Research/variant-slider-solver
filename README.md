@@ -48,6 +48,10 @@ variant-slider-solver/
 ├── V3.py                # 终极版：双掩码 PDB 引导的 A* 算法
 ├── run_benchmark.py     # 自动化评测工具 (性能、内存、路径验证)
 ├── cases.py             # 存放预置棋盘 (Easy/Medium/Hard)
+├── README.md            # 项目说明文档 (中文版：含快速启动与勘误摘要)
+├── README_EN.md         # 项目说明文档 (英文版)
+├── ERRATA.md            # 学术勘误与理论补充说明 (中文版：硬核理论推导)
+├── ERRATA_EN.md         # 学术勘误与理论补充说明 (英文版)
 ├── REFERENCES.md        # 核心参考文献与理论溯源 (含 DOI 与直达链接)
 └── LICENSE              # MIT 开源协议
 ```
