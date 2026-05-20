@@ -121,7 +121,7 @@ To ensure the accuracy of citations for subsequent researchers, and to refine th
 
 *(Note: The above supplements only involve the expansion of theoretical boundaries and formatting corrections, and do not affect the core algorithm logic of the thesis or the experimental conclusion of a 61-fold performance improvement.)*
 
-👉 **For detailed derivations and explanations, please refer to: [《Academic Errata and Theoretical Supplementary Notes》 (ERRATA.md)](./ERRATA.md)**
+👉 **For detailed derivations and explanations, please refer to: [《Academic Errata and Theoretical Supplementary Notes》 (ERRATA.md)](./ERRATA_EN.md)**
 
 ---
 
