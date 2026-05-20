@@ -12,7 +12,7 @@ jobs:
   translate:
     runs-on: ubuntu-latest
     permissions:
-      contents: write    # 必须配置：允许 Action 将翻译后的文件推送回仓库
+      contents: write    # 允许 Action 将翻译后的文件推送回仓库
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -34,6 +34,7 @@ jobs:
         run: |
           python -c '
           import os
+          import re
           from openai import OpenAI
 
           api_key = os.environ.get("DEEPSEEK_API_KEY")
@@ -73,6 +74,13 @@ jobs:
                       temperature=0.2,
                   )
                   translated_text = response.choices[0].message.content
+
+                  # 自动将文本中的文件名（如 README.md）替换为对应的英文文件名（如 README_EN.md）
+                  # 使用正则 (?i)\bFILENAME(?!_en)\.md 确保不重复拼接为 _EN_EN.md
+                  for f_target in files_to_translate:
+                      target_base, _ = os.path.splitext(f_target)
+                      pattern = rf"(?i)\b{target_base}(?!_en)\.md"
+                      translated_text = re.sub(pattern, f"{target_base}_EN.md", translated_text)
 
                   # 生成输出文件名，例如 README_EN.md
                   base, ext = os.path.splitext(file_name)
