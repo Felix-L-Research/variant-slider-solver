@@ -12,7 +12,7 @@ def generate_neighbors(rows, cols, puzzle_1d):
     for i in range(rows):
         for j in range(cols):
             index = i * cols + j
-            if puzzle_1d[index] == 0:  # 跳过空位(假设0是不参与交换的障碍)
+            if puzzle_1d[index] == 0:  # 跳过障碍物(映射值为0，即原棋盘的-2)
                 continue
             adj = []
             for ni, nj in [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]:
