@@ -11,7 +11,7 @@
   <b>中文版</b> | <b><a href="README_EN.md">English Version</a></b>
 </p>
 
-> **🎓 Accompanying Implementation for an Undergraduate Thesis** | An abstract model for industrial scheduling with high dimensionality, multiple homogeneous objectives, and wildcard block constraints. Through bitwise state compression and heuristic evolution, it achieves **second-level solving of 46-step extreme-difficulty puzzles** on a laptop (Intel i5 9300H, 32GB RAM).
+> **🎓 Accompanying Implementation for Undergraduate Thesis** | An abstract model for industrial scheduling with high dimensionality, multiple homogeneous objectives, and wildcard block constraints. Through bitwise state compression and heuristic evolution, it achieves **second-level solving of 46-step extreme-difficulty puzzles** on a laptop (Intel i5 9300H, 32GB RAM).
 
 ---
 
@@ -19,18 +19,18 @@
 
 This framework documents the complete evolutionary trajectory from an **object-oriented beginner version** to a **hardware-level low-level optimized version**:
 
-*   **⚡ Extreme Optimization:** Utilizes 64-bit Bitboards and dual-mask concatenation (44-bit) to completely eliminate Python object overhead and GC pauses.
-*   **🧠 Intelligent Decision-Making:** Introduces an admissible **Additive Pattern Database (PDB)**, transforming search space evaluation into an $O(1)$ table lookup operation.
-*   **🛠️ Engineering Closure:** Provides iterative source code from `V0` to `V3`, clearly demonstrating the optimization path from object-oriented to hardware-friendly algorithms.
-*   **📊 Data-Driven:** Compared to the baseline version, node search volume is reduced by **87%**, memory usage is reduced by **96%**, and total time consumption is shortened by a factor of **61**.
+*   **⚡ Extreme Optimization:** Utilizes 64-bit Bitboard and dual-mask concatenation (44-bit) to completely eliminate Python object overhead and GC pauses.
+*   **🧠 Intelligent Decision-Making:** Introduces an **Admissible Additive Pattern Database (PDB)**, transforming search space evaluation into an $O(1)$ table lookup operation.
+*   **🛠️ Engineering Closure:** Provides iterative source code from `V0` to `V3`, intuitively demonstrating the optimization path from object-oriented to hardware-friendly algorithms.
+*   **📊 Data-Driven:** Compared to the baseline version, node search count is reduced by **87%**, memory usage is reduced by **96%**, and total time consumption is shortened by **61 times**.
 
 ---
 
 ## 🚀 Algorithm Evolution Roadmap
 
-| Phase | Core Implementation | Optimization Technique | Applicable Scenario |
+| Phase | Core Implementation | Optimization Method | Applicable Scenario |
 | :--- | :--- | :--- | :--- |
-| **V0 (Baseline)** | `List[List]` | Hamming Distance (Misplaced Count) | Prototype validation, logic verification |
+| **V0 (Baseline)** | `List[List]` | Hamming Distance (Misplaced Count) | Prototype verification, logic validation |
 | **V1 (Memory)** | `Tuple` + `__slots__` | Memory Alignment + Tie-breaker | Reduce fragmentation, optimize object storage |
 | **V2 (Bitwise)** | `64-bit Bitboard` | Bidirectional BFS + Static Mask XOR | State space compression, eliminate pointer overhead |
 | **V3 (Ultimate)** | `PDB + A*` | Offline Precomputation + Heuristic Pruning | Extreme search, complex solutions with 40+ steps |
@@ -45,11 +45,11 @@ variant-slider-solver/
 ├── V1.py                # Engineering optimization: 1D tuple + state scattering optimization
 ├── V2.py                # Computational power optimization: bitwise core + bidirectional search
 ├── V3.py                # Ultimate version: dual-mask PDB-guided A* algorithm
-├── run_benchmark.py     # Automated benchmarking tool (performance, memory, path verification)
+├── run_benchmark.py     # Automated evaluation tool (performance, memory, path verification)
 ├── cases.py             # Contains preset boards (Easy/Medium/Hard)
-├── README.md            # Project documentation (Chinese version: includes quick start and errata summary)
+├── README_EN.md            # Project documentation (Chinese version: includes quick start and errata summary)
 ├── README_EN.md         # Project documentation (English version)
-├── ERRATA.md            # Academic errata and theoretical supplementary notes (Chinese version: rigorous theoretical derivations)
+├── ERRATA_EN.md            # Academic errata and theoretical supplementary notes (Chinese version: rigorous theoretical derivations)
 ├── ERRATA_EN.md         # Academic errata and theoretical supplementary notes (English version)
 ├── REFERENCES.md        # Core references and theoretical sources (includes DOIs and direct links)
 └── LICENSE              # MIT open-source license
@@ -59,7 +59,7 @@ variant-slider-solver/
 
 ## 📊 Experimental Data Comparison (Hard Difficulty / 46-step Optimal Solution)
 
-| Version | Core Technology | Expanded Nodes | Peak Memory | Pathfinding Time | Overall Speedup |
+| Version | Core Technology | Expanded Nodes | Peak Memory | Pathfinding Time | Comprehensive Speedup |
 | :-- | :-- | :-- | :-- | :-- | :-- |
 | **V0** | 2D List + Hamming | 3,547,878 | 2,929 MB | 163.50 s | 1.0× (Baseline) |
 | **V1** | 1D Tuple + `__slots__` | 3,341,754 | 1,092 MB | 64.58 s | 2.53× |
@@ -70,7 +70,7 @@ variant-slider-solver/
 
 ## 🛠️ Quick Start
 
-Using `run_benchmark.py`, you can conveniently test algorithms across different versions and difficulty levels.
+Using `run_benchmark.py`, you can conveniently test the algorithm across different versions and difficulty levels.
 
 ### 1. Example Run Commands
 ```bash
@@ -90,7 +90,7 @@ python run_benchmark.py V0 --mode mem --case easy
 
 ---
 
-## 🎓 Academic Note
+## 🎓 Academic Statement
 
 This repository is the accompanying implementation for an undergraduate thesis at Central South University of Forestry and Technology.
 *   **Thesis Title:** "Research on Solving Algorithms for Variant Slider Puzzles Based on Bitwise State Compression and Pattern Databases"
@@ -100,31 +100,31 @@ This repository is the accompanying implementation for an undergraduate thesis a
 
 ## 📚 References and Theoretical Sources (References)
 
-In the spirit of Open Science, and to facilitate future developers and researchers in tracing the theoretical foundations of this project (the Variant Slider Puzzle Solving Engine), we provide here a complete set of digital retrieval links for all references. All references have undergone rigorous cross-verification and include official DOIs or permanent Google Scholar retrieval addresses.
+In the spirit of Open Science, and to facilitate subsequent developers and researchers in tracing the theoretical foundations of this project (the Variant Slider Puzzle Solving Engine), we provide here a complete set of digital retrieval links for all references. All references have undergone rigorous cross-validation and include official DOIs or permanent Google Scholar retrieval addresses.
 
-👉 **[Click to view the complete reference list (REFERENCES.md)](./REFERENCES.md)**
+👉 **[Click to view the complete list of references (REFERENCES.md)](./REFERENCES.md)**
 
 ---
 
 ## 📌 Academic Errata and Theoretical Supplement (Errata & Addendum)
 
-Upholding a rigorous academic attitude, the author conducted an in-depth review and extreme stress testing of the engineering implementation details and underlying discrete mathematics theory in the thesis after its finalization.
+Adhering to a rigorous academic attitude, the author conducted an in-depth review and extreme stress testing of the engineering implementation details and underlying discrete mathematics theory in the thesis after its finalization.
 
 To ensure the accuracy of citations for subsequent researchers and to refine the theoretical boundaries of this algorithm in generalized industrial scenarios, this project has compiled a detailed supplementary documentation. It primarily covers deepening in the following three dimensions:
 
-1. **Engineering Implementation Notes**: Supplements the explanation of the $O(1)$ ultra-fast relaxation matching strategy based on `PDB multi-start initialization` in the actual source code (an engineering deepening of the pseudo-code in Algorithm 4-1 of the thesis).
-2. **Formatting and Reference Errata**: Corrects typographical errors in page numbers and publication locations for some references.
-3. **Theoretical Boundary Derivation (Core)**:
+1. **Engineering Implementation Notes:** Supplements the $O(1)$ ultra-fast relaxation matching strategy based on `PDB multi-start initialization` in the actual source code (an engineering deepening of the pseudo-code in Algorithm 4-1 of the thesis).
+2. **Formatting and Reference Errata:** Corrects typographical errors in page numbers and publication locations for some references.
+3. **Theoretical Boundary Derivation (Core):**
    - Supplements the **topological connectivity prerequisite** (connected component detection) for the validity of the generalized state space formula.
-   - Reveals the underlying algebraic principle of **topological folding of "parity isolation"** by the wildcard block relaxation matching mechanism.
-   - Rigorously derives the **absolute mathematical boundary ($N_{valid} \le 3$)** for parity deadlock recovery under extreme obstacle density.
+   - Reveals the underlying algebraic principle of **topological folding of the `"parity isolation"`** by the wildcard block relaxation matching mechanism.
+   - Rigorously derives the **absolute mathematical boundary ($`N_{\text{valid}} \le 3`$)** for parity deadlock recovery under extreme obstacle density.
 
-*(Note: The above supplements only involve the expansion of theoretical boundaries and formatting corrections, and do not affect the core algorithm logic of the thesis or the experimental conclusion of a 61-fold performance improvement.)*
+*(Note: The above supplements only involve the expansion of theoretical boundaries and the correction of formatting errors; they do not affect the core algorithm logic of the thesis or the experimental conclusion of a 61-fold performance improvement.)*
 
-👉 **Please refer to the detailed derivations and explanations in: [《Academic Errata and Theoretical Supplementary Notes》 (ERRATA.md)](./ERRATA.md)**
+👉 **For detailed derivations and explanations, please refer to: [Academic Errata and Theoretical Supplementary Notes (ERRATA_EN.md)](./ERRATA_EN.md)**
 
 ---
 
-## 📜 License and Acknowledgments
+## 📜 License and Acknowledgements
 *   **License:** [MIT License](LICENSE)
-*   **Mentor:** Special thanks to **Professor Liu Rong** for her meticulous guidance on algorithmic rigor and thesis structure.
+*   **Mentor:** Special thanks to **Professor Liu Rong** for her meticulous guidance on the algorithmic rigor and thesis structure.
