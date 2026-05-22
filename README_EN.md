@@ -11,7 +11,7 @@
   <b>中文版</b> | <b><a href="README_EN.md">English Version</a></b>
 </p>
 
-> **🎓 Accompanying Implementation for Undergraduate Thesis** | An abstract model for industrial scheduling with high dimensionality, multiple homogeneous objectives, and wildcard block constraints. Through bitwise state compression and heuristic evolution, it achieves **second-level solving of 46-step extreme-difficulty puzzles** on a laptop (Intel i5 9300H, 32GB RAM).
+> **🎓 Undergraduate Thesis Companion Implementation** | An abstract model for industrial scheduling with high dimensionality, multiple homogeneous objectives, and wildcard block constraints. Through bitwise state compression and heuristic evolution, it achieves **second-level solving of 46-step extreme-difficulty puzzles** on a laptop (Intel i5 9300H, 32GB RAM).
 
 ---
 
@@ -20,9 +20,9 @@
 This framework documents the complete evolutionary trajectory from an **object-oriented beginner version** to a **hardware-level low-level optimized version**:
 
 *   **⚡ Extreme Optimization:** Utilizes 64-bit Bitboard and dual-mask concatenation (44-bit) to completely eliminate Python object overhead and GC pauses.
-*   **🧠 Intelligent Decision-Making:** Introduces an **Admissible Additive Pattern Database (PDB)**, transforming search space evaluation into an $O(1)$ table lookup operation.
+*   **🧠 Intelligent Decision-Making:** Introduces an admissible **additive pattern database (PDB)**, transforming search space evaluation into an $O(1)$ table lookup operation.
 *   **🛠️ Engineering Closure:** Provides iterative source code from `V0` to `V3`, intuitively demonstrating the optimization path from object-oriented to hardware-friendly algorithms.
-*   **📊 Data-Driven:** Compared to the baseline version, node search count is reduced by **87%**, memory usage is reduced by **96%**, and total time consumption is shortened by **61 times**.
+*   **📊 Data-Driven:** Compared to the baseline version, node search volume is reduced by **87%**, memory usage is reduced by **96%**, and total time consumption is shortened by **61 times**.
 
 ---
 
@@ -59,7 +59,7 @@ variant-slider-solver/
 
 ## 📊 Experimental Data Comparison (Hard Difficulty / 46-step Optimal Solution)
 
-| Version | Core Technology | Expanded Nodes | Peak Memory | Pathfinding Time | Comprehensive Speedup |
+| Version | Core Technology | Expanded Nodes | Peak Memory | Pathfinding Time | Overall Speedup |
 | :-- | :-- | :-- | :-- | :-- | :-- |
 | **V0** | 2D List + Hamming | 3,547,878 | 2,929 MB | 163.50 s | 1.0× (Baseline) |
 | **V1** | 1D Tuple + `__slots__` | 3,341,754 | 1,092 MB | 64.58 s | 2.53× |
@@ -90,9 +90,9 @@ python run_benchmark.py V0 --mode mem --case easy
 
 ---
 
-## 🎓 Academic Statement
+## 🎓 Academic Note
 
-This repository is the accompanying implementation for an undergraduate thesis at Central South University of Forestry and Technology.
+This repository is the companion implementation for an undergraduate thesis at Central South University of Forestry and Technology.
 *   **Thesis Title:** "Research on Solving Algorithms for Variant Slider Puzzles Based on Bitwise State Compression and Pattern Databases"
 *   **Core Contributions:** Proved the admissibility of PDB for multiple homogeneous objectives and designed a state transition model based on the XOR involution equation, achieving hardware-level performance optimization within the Python environment.
 
@@ -100,28 +100,28 @@ This repository is the accompanying implementation for an undergraduate thesis a
 
 ## 📚 References and Theoretical Sources (References)
 
-In the spirit of Open Science, and to facilitate subsequent developers and researchers in tracing the theoretical foundations of this project (the Variant Slider Puzzle Solving Engine), we provide here a complete set of digital retrieval links for all references. All references have undergone rigorous cross-validation and include official DOIs or permanent Google Scholar retrieval addresses.
+In the spirit of open science, and to facilitate subsequent developers and researchers in tracing the theoretical foundations of this project (the variant slider puzzle solving engine), a complete set of digital retrieval links for the references is provided here. All references have undergone rigorous cross-verification and include official DOIs or permanent Google Scholar retrieval addresses.
 
-👉 **[Click to view the complete list of references (REFERENCES.md)](./REFERENCES.md)**
+👉 **[Click to view the complete reference list (REFERENCES.md)](./REFERENCES.md)**
 
 ---
 
 ## 📌 Academic Errata and Theoretical Supplement (Errata & Addendum)
 
-Adhering to a rigorous academic attitude, the author conducted an in-depth review and extreme stress testing of the engineering implementation details and underlying discrete mathematics theory in the thesis after its finalization.
+Adhering to a rigorous academic attitude, after the finalization of the undergraduate thesis, the author conducted an in-depth review and extreme stress testing of the engineering implementation details and the underlying discrete mathematics theory presented in the text.
 
 To ensure the accuracy of citations for subsequent researchers and to refine the theoretical boundaries of this algorithm in generalized industrial scenarios, this project has compiled a detailed supplementary documentation. It primarily covers deepening in the following three dimensions:
 
-1. **Engineering Implementation Notes:** Supplements the $O(1)$ ultra-fast relaxation matching strategy based on `PDB multi-start initialization` in the actual source code (an engineering deepening of the pseudo-code in Algorithm 4-1 of the thesis).
-2. **Formatting and Reference Errata:** Corrects typographical errors in page numbers and publication locations for some references.
-3. **Theoretical Boundary Derivation (Core):**
-   - Supplements the **topological connectivity prerequisite** (connected component detection) for the validity of the generalized state space formula.
-   - Reveals the underlying algebraic principle of **topological folding of the `"parity isolation"`** by the wildcard block relaxation matching mechanism.
-   - Rigorously derives the **absolute mathematical boundary ($`N_{\text{valid}} \le 3`$)** for parity deadlock recovery under extreme obstacle density.
+1. **Engineering Implementation Notes**: Supplements the explanation of the $O(1)$ ultra-fast relaxation matching strategy based on `PDB multi-start initialization` in the actual source code (an engineering deepening of the pseudocode in Algorithm 4-1 of the thesis).
+2. **Formatting and Reference Errata**: Corrects typographical errors in page numbers and publication locations for some references.
+3. **Theoretical Boundary Derivation (Core)**:
+   - Supplements the **topological connectivity prerequisite** (connected component detection) required for the validity of the generalized state space formula.
+   - Reveals the underlying algebraic principle of **"topological folding of parity isolation"** by the wildcard block relaxation matching mechanism.
+   - Rigorously derives the **absolute mathematical boundary** ($N_{\text{valid}} \le 3$) for parity deadlock recovery under extreme obstacle density.
 
-*(Note: The above supplements only involve the expansion of theoretical boundaries and the correction of formatting errors; they do not affect the core algorithm logic of the thesis or the experimental conclusion of a 61-fold performance improvement.)*
+*(Note: The above supplements only involve the expansion of theoretical boundaries and corrections of formatting errors; they do not affect the core algorithm logic of the thesis or the experimental conclusion of a 61-fold performance improvement.)*
 
-👉 **For detailed derivations and explanations, please refer to: [Academic Errata and Theoretical Supplementary Notes (ERRATA_EN.md)](./ERRATA_EN.md)**
+👉 **Please refer to the detailed derivation and explanation in: [Academic Errata and Theoretical Supplement Notes (ERRATA_EN.md)](./ERRATA_EN.md)**
 
 ---
 
